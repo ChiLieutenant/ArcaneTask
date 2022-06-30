@@ -1,0 +1,4 @@
+name: ArcaneTask
+version: '${project.version}'
+main: com.chilieutenant.arcanetask.Main
+api-version: 1.19
