@@ -2,6 +2,7 @@ package com.chilieutenant.arcanetask.listeners;
 
 import com.chilieutenant.arcanetask.Main;
 import com.chilieutenant.arcanetask.handlers.DeadPlayer;
+import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -39,7 +40,7 @@ public class MainListener implements Listener {
     public void onRightClick(PlayerInteractAtEntityEvent event){
         Entity entity = event.getRightClicked();
         if(entity instanceof Player player){
-            if(DeadPlayer.isPlayerDead(player)){
+            if(DeadPlayer.isPlayerDead(player) && event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.GOLDEN_APPLE)){
                 DeadPlayer dp = DeadPlayer.getDeadPlayer(player);
                 dp.revive();
             }
